@@ -1,0 +1,2 @@
+More decimal places are not needed. The game only tracks/is accurate to the hundredths place.
+

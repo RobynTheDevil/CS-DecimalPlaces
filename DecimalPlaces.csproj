@@ -5,9 +5,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{6A3E2B1A-8596-4DB6-8234-C60805066642}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AssemblyName>DecimalPlaces</AssemblyName>
+    <AssemblyName>OneMoreDecimalPlaceForTimers</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <ApplicationVersion>0.0.1</ApplicationVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -37,6 +37,7 @@
     <Reference Include="Unity.InputSystem" HintPath="D:\Steam\steamapps\common\Cultist Simulator\cultistsimulator_Data\Managed\Unity.InputSystem.dll" />
     <Reference Include="UnityEngine.CoreModule" HintPath="D:\Steam\steamapps\common\Cultist Simulator\cultistsimulator_Data\Managed\UnityEngine.CoreModule.dll" />
     <Reference Include="SecretHistories.Main" HintPath="D:\Steam\steamapps\common\Cultist Simulator\cultistsimulator_Data\Managed\SecretHistories.Main.dll" />
+    <Reference Include="SecretHistories.Interfaces" HintPath="D:\Steam\steamapps\common\Cultist Simulator\cultistsimulator_Data\Managed\SecretHistories.Interfaces.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DecimalPlaces.cs" />

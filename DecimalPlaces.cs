@@ -1,16 +1,10 @@
-using HarmonyLib;
-using SecretHistories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
-
-class DecimalPlaces
-{
-  public void Start() {
-      var harmony = new Harmony("com.cultistsim.robynthedevil.decimalplaces");
-      harmony.PatchAll();
-  }
-}
+using UnityEngine;
+using SecretHistories;
+using HarmonyLib;
 
 [HarmonyPatch(typeof(LanguageManager), nameof(LanguageManager.GetTimeStringForCurrentLanguage))]
 class Patch
@@ -34,5 +28,29 @@ class Patch
         codes[index].operand = "0.00";
         return codes.AsEnumerable();
     }
+}
+
+public class OneMoreDecimalPlaceForTimers : MonoBehaviour
+{
+    private static Harmony harmony;
+
+    public void Start() {}
+    public void Update() {}
+    public void OnDestroy() {}
+
+    public static void Initialise() {
+        DecimalPlaces.harmony = new Harmony("robynthedevil.decimalplaces");
+		//new GameObject().AddComponent<DecimalPlaces>();
+		try
+		{
+            DecimalPlaces.harmony.PatchAll();
+		}
+		catch (Exception ex)
+		{
+			NoonUtility.LogWarning(ex.ToString());
+			NoonUtility.LogException(ex);
+		}
+        NoonUtility.LogWarning("DecimalPlaces: Initialised");
+	}
 }
 

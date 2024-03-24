@@ -1,7 +1,10 @@
 {
-    "name": "One More Decimal Place for Card and Verb Timers",
+    "name": "One More Decimal Place For Timers",
     "author": "RobynTheDevil",
     "version": "0.0.1",
-    "description": "What it says on the tin."
+    "description": "I see the cracks",
+    "tags": [
+        "Quality of Life"
+    ]
 }
 
