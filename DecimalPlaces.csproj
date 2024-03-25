@@ -40,7 +40,9 @@
     <Reference Include="SecretHistories.Interfaces" HintPath="D:\Steam\steamapps\common\Cultist Simulator\cultistsimulator_Data\Managed\SecretHistories.Interfaces.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DecimalPlaces.cs" />
+    <Compile Include="OneMoreDecimalPlaceForTimers.cs" />
+    <Compile Include="SettingTracker.cs" />
+    <Compile Include="Patches.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,20 @@
+{
+  "cultures": [
+    {
+      "id": "en",
+      "uilabels$add": {
+        "UI_OPT_SHOWTIMERDECIMAL": "Show Extra Decimal Place",
+        "UI_OPT_HIDETIMERPOINT": "Hide Timer Separator",
+        "UI_OPT_HIDETIMERUNIT": "Hide Timer Unit",
+        "UI_OPT_YES": "Yes",
+        "UI_OPT_NO": "No"
+      }
+    },
+    {
+      "id": "zh-hans",
+      "uilabels$add": {
+        "UI_OPT_FASTSCALE": "快进倍率"
+      }
+    }
+  ]
+}

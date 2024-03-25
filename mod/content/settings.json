@@ -1,0 +1,43 @@
+{
+    "settings": [
+        {
+            "id": "ShowTimerDecimal",
+            "tabid": "UI_GAMEPLAY",
+            "hint": "UI_OPT_SHOWTIMERDECIMAL",
+            "minvalue": 0,
+            "maxvalue": 1,
+            "defaultvalue": "1",
+            "datatype": "Int32",
+            "valuelabels": {
+                "0": "UI_OPT_NO",
+                "1": "UI_OPT_YES"
+            }
+        },
+        {
+            "id": "HideTimerPoint",
+            "tabid": "UI_GAMEPLAY",
+            "hint": "UI_OPT_HIDETIMERPOINT",
+            "minvalue": 0,
+            "maxvalue": 1,
+            "defaultvalue": "0",
+            "datatype": "Int32",
+            "valuelabels": {
+                "0": "UI_OPT_NO",
+                "1": "UI_OPT_YES"
+            }
+        },
+        {
+            "id": "HideTimerUnit",
+            "tabid": "UI_GAMEPLAY",
+            "hint": "UI_OPT_HIDETIMERUNIT",
+            "minvalue": 0,
+            "maxvalue": 1,
+            "defaultvalue": "0",
+            "datatype": "Int32",
+            "valuelabels": {
+                "0": "UI_OPT_NO",
+                "1": "UI_OPT_YES"
+            }
+        }
+    ]
+}
