@@ -9,12 +9,6 @@
         "UI_OPT_YES": "Yes",
         "UI_OPT_NO": "No"
       }
-    },
-    {
-      "id": "zh-hans",
-      "uilabels$add": {
-        "UI_OPT_FASTSCALE": "快进倍率"
-      }
     }
   ]
 }

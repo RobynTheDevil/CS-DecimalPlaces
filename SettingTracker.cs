@@ -102,10 +102,9 @@ public class PatchTracker : ValueTracker<bool>
     {
         bool prev = this.current;
         this.SetCurrent(newValue);
-        NoonUtility.LogWarning(string.Format("OneMoreDecimalPlaceForTimers: Setting Updated {0}, {1}, {2}", this.settingId, prev, this.current));
         if (prev != this.current) {
             if (this.current) {
-                NoonUtility.LogWarning(string.Format("OneMoreDecimalPlaceForTimers: Patching {0}, {1}", patch.original, patch.patch));
+                NoonUtility.Log(string.Format("OneMoreDecimalPlaceForTimers: Patching {0}, {1}", patch.original, patch.patch));
                 try {
                     this.patch.DoPatch();
                 } catch (Exception ex) {
@@ -113,7 +112,7 @@ public class PatchTracker : ValueTracker<bool>
                     NoonUtility.LogException(ex);
                 }
             } else {
-                NoonUtility.LogWarning(string.Format("OneMoreDecimalPlaceForTimers: Unpatching {0}, {1}", patch.original, patch.patch));
+                NoonUtility.Log(string.Format("OneMoreDecimalPlaceForTimers: Unpatching {0}, {1}", patch.original, patch.patch));
                 try {
                     this.patch.UnPatch();
                 } catch (Exception ex) {

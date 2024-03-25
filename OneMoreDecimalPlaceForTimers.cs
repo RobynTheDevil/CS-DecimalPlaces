@@ -25,7 +25,7 @@ public class OneMoreDecimalPlaceForTimers : MonoBehaviour
         {
           NoonUtility.LogException(ex);
         }
-        NoonUtility.LogWarning("OneMoreDecimalPlaceForTimers: Trackers Started");
+        NoonUtility.Log("OneMoreDecimalPlaceForTimers: Trackers Started");
     }
 
     public static void Initialise() {

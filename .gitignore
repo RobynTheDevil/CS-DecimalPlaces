@@ -2,3 +2,5 @@ lib/
 bin/
 obj/
 mod/dll
+mod/cover.png
+screenshots/
