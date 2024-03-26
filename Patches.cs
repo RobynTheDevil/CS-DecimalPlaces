@@ -50,10 +50,12 @@ public class PatchTracker : ValueTracker<bool>
 {
     public Patch patch {get; set;}
 
-    public PatchTracker(string settingId, Patch patch)
-        : base(settingId, new bool[2] {false, true})
+    public PatchTracker(string settingId, Patch patch, bool start=true)
+        : base(settingId, new bool[2] {false, true}, false)
     {
         this.patch = patch;
+        if (start)
+            this.Start();
     }
 
     public override void BeforeSettingUpdated(object newValue) {}

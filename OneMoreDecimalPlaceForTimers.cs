@@ -15,11 +15,8 @@ public class OneMoreDecimalPlaceForTimers : MonoBehaviour
         try
         {
             OneMoreDecimalPlaceForTimers.showDecimal = new PatchTracker("ShowTimerDecimal", new MainPatch());
-            OneMoreDecimalPlaceForTimers.showDecimal.Start();
             OneMoreDecimalPlaceForTimers.hidePoint = new PatchTracker("HideTimerPoint", new PointPatch());
-            OneMoreDecimalPlaceForTimers.hidePoint.Start();
             OneMoreDecimalPlaceForTimers.hideUnit = new PatchTracker("HideTimerUnit", new UnitPatch());
-            OneMoreDecimalPlaceForTimers.hideUnit.Start();
         }
         catch (Exception ex)
         {
