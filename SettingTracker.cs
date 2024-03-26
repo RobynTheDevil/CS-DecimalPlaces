@@ -4,7 +4,6 @@ using SecretHistories.Fucine;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using HarmonyLib;
 
 public abstract class SettingTracker: ISettingSubscriber
 {
@@ -69,6 +68,7 @@ public class KeybindTracker : SettingTracker
 		int num = id.LastIndexOf('/');
 		string s = num < 0 ? id : id.Substring(num + 1);
 		s = int.TryParse(s, out _) ? "Digit" + s : s;
+        s = s.Length > 1 ? char.ToUpper(s[0]) + s.Substring(1) : s.ToUpper();
 		return (Key) Enum.Parse(typeof (Key), s);
 	}
 
@@ -86,41 +86,4 @@ public class KeybindTracker : SettingTracker
 
 }
 
-public class PatchTracker : ValueTracker<bool>
-{
-    public Patch patch {get; set;}
-
-    public PatchTracker(string settingId, Patch patch)
-        : base(settingId, new bool[2] {false, true})
-    {
-        this.patch = patch;
-    }
-
-    public override void BeforeSettingUpdated(object newValue) {}
-
-    public override void WhenSettingUpdated(object newValue)
-    {
-        bool prev = this.current;
-        this.SetCurrent(newValue);
-        if (prev != this.current) {
-            if (this.current) {
-                NoonUtility.Log(string.Format("OneMoreDecimalPlaceForTimers: Patching {0}, {1}", patch.original, patch.patch));
-                try {
-                    this.patch.DoPatch();
-                } catch (Exception ex) {
-                    NoonUtility.LogWarning(ex.ToString());
-                    NoonUtility.LogException(ex);
-                }
-            } else {
-                NoonUtility.Log(string.Format("OneMoreDecimalPlaceForTimers: Unpatching {0}, {1}", patch.original, patch.patch));
-                try {
-                    this.patch.UnPatch();
-                } catch (Exception ex) {
-                    NoonUtility.LogWarning(ex.ToString());
-                    NoonUtility.LogException(ex);
-                }
-            }
-        }
-    }
-}
 

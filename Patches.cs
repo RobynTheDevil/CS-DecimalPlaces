@@ -46,6 +46,44 @@ public class Patch
     }
 }
 
+public class PatchTracker : ValueTracker<bool>
+{
+    public Patch patch {get; set;}
+
+    public PatchTracker(string settingId, Patch patch)
+        : base(settingId, new bool[2] {false, true})
+    {
+        this.patch = patch;
+    }
+
+    public override void BeforeSettingUpdated(object newValue) {}
+
+    public override void WhenSettingUpdated(object newValue)
+    {
+        bool prev = this.current;
+        this.SetCurrent(newValue);
+        if (prev != this.current) {
+            if (this.current) {
+                NoonUtility.Log(string.Format("OneMoreDecimalPlaceForTimers: Patching {0}, {1}", patch.original, patch.patch));
+                try {
+                    this.patch.DoPatch();
+                } catch (Exception ex) {
+                    NoonUtility.LogWarning(ex.ToString());
+                    NoonUtility.LogException(ex);
+                }
+            } else {
+                NoonUtility.Log(string.Format("OneMoreDecimalPlaceForTimers: Unpatching {0}, {1}", patch.original, patch.patch));
+                try {
+                    this.patch.UnPatch();
+                } catch (Exception ex) {
+                    NoonUtility.LogWarning(ex.ToString());
+                    NoonUtility.LogException(ex);
+                }
+            }
+        }
+    }
+}
+
 [HarmonyPatch(typeof(LanguageManager), nameof(LanguageManager.GetTimeStringForCurrentLanguage))]
 public class MainPatch : Patch
 {
