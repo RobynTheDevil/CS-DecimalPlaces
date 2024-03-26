@@ -22,10 +22,6 @@ public class MainPatch : Patch
         return codes.AsEnumerable();
     }
 
-    public static void Prefix()
-    {
-        
-    }
 }
 
 [HarmonyPatch(typeof(LanguageManager), nameof(LanguageManager.GetTimeStringForCurrentLanguage))]
