@@ -6,7 +6,6 @@ using HarmonyLib;
 
 public class OneMoreDecimalPlaceForTimers : MonoBehaviour
 {
-    public static Harmony harmony;
     public static PatchTracker showDecimal {get; private set;}
     public static PatchTracker hidePoint {get; private set;}
     public static PatchTracker hideUnit {get; private set;}
@@ -27,7 +26,7 @@ public class OneMoreDecimalPlaceForTimers : MonoBehaviour
 
     public static void Initialise() {
         //Harmony.DEBUG = true;
-        OneMoreDecimalPlaceForTimers.harmony = new Harmony("robynthedevil.onemoredecimalplacefortimers");
+        Patch.harmony = new Harmony("robynthedevil.onemoredecimalplacefortimers");
 		new GameObject().AddComponent<OneMoreDecimalPlaceForTimers>();
         NoonUtility.Log("OneMoreDecimalPlaceForTimers: Initialised");
 	}

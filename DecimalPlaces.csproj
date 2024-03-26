@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="OneMoreDecimalPlaceForTimers.cs" />
     <Compile Include="../common/SettingTracker.cs" />
+    <Compile Include="../common/PatchTracker.cs" />
     <Compile Include="Patches.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
