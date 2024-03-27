@@ -18,9 +18,9 @@ public class OneMoreDecimalPlaceForTimers : MonoBehaviour
     public void Start() {
         try
         {
-            OneMoreDecimalPlaceForTimers.showDecimal = new PatchTracker("ShowTimerDecimal", new MainPatch(), WhenSettingUpdated);
-            OneMoreDecimalPlaceForTimers.hidePoint = new PatchTracker("HideTimerPoint", new PointPatch(), WhenSettingUpdated);
-            OneMoreDecimalPlaceForTimers.hideUnit = new PatchTracker("HideTimerUnit", new UnitPatch(), WhenSettingUpdated);
+            showDecimal = new PatchTracker("ShowTimerDecimal", new MainPatch(), WhenSettingUpdated);
+            hidePoint = new PatchTracker("HideTimerPoint", new PointPatch(), WhenSettingUpdated);
+            hideUnit = new PatchTracker("HideTimerUnit", new UnitPatch(), WhenSettingUpdated);
         }
         catch (Exception ex)
         {
@@ -44,7 +44,7 @@ public class OneMoreDecimalPlaceForTimers : MonoBehaviour
     }
 
     public static void WhenSettingUpdated(SettingTracker<bool> tracker) {
-        IEnumerable<Token> tokens = OneMoreDecimalPlaceForTimers.GetTokens();
+        IEnumerable<Token> tokens = GetTokens();
         foreach (Token token in tokens) {
             token.UpdateVisuals();
         }
