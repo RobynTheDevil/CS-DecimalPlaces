@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using SecretHistories;
 using SecretHistories.UI;
 using SecretHistories.Entities;
@@ -11,16 +13,28 @@ using HarmonyLib;
 
 public class OneMoreDecimalPlaceForTimers : MonoBehaviour
 {
+    public static bool started = false;
     public static PatchTracker showDecimal {get; private set;}
     public static PatchTracker hidePoint {get; private set;}
     public static PatchTracker hideUnit {get; private set;}
 
-    public void Start() {
+    public void Start() => SceneManager.sceneLoaded += Load;
+
+    public void OnDestroy() => SceneManager.sceneLoaded -= Load;
+
+    public static void Load(Scene scene, LoadSceneMode mode) {
         try
         {
-            showDecimal = new PatchTracker("ShowTimerDecimal", new MainPatch(), WhenSettingUpdated);
-            hidePoint = new PatchTracker("HideTimerPoint", new PointPatch(), WhenSettingUpdated);
-            hideUnit = new PatchTracker("HideTimerUnit", new UnitPatch(), WhenSettingUpdated);
+            if (!started) {
+                showDecimal = new PatchTracker("ShowTimerDecimal", new MainPatch(), WhenSettingUpdated);
+                hidePoint = new PatchTracker("HideTimerPoint", new PointPatch(), WhenSettingUpdated);
+                hideUnit = new PatchTracker("HideTimerUnit", new UnitPatch(), WhenSettingUpdated);
+                started = true;
+            } else {
+                showDecimal.Subscribe();
+                hidePoint.Subscribe();
+                hideUnit.Subscribe();
+            }
         }
         catch (Exception ex)
         {
