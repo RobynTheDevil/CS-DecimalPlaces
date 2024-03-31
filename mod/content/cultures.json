@@ -3,9 +3,11 @@
     {
       "id": "en",
       "uilabels$add": {
-        "UI_OPT_SHOWTIMERDECIMAL": "Show Extra Decimal Place",
+        "UI_OPT_SHOWTIMERDECIMAL": "Extra Decimal Place",
         "UI_OPT_HIDETIMERPOINT": "Hide Timer Separator",
         "UI_OPT_HIDETIMERUNIT": "Hide Timer Unit",
+        "UI_OPT_ONELESS": "One Less",
+        "UI_OPT_ONEMORE": "One More",
         "UI_OPT_YES": "Yes",
         "UI_OPT_NO": "No"
       }

@@ -9,6 +9,8 @@ using HarmonyLib;
 [HarmonyPatch(typeof(LanguageManager), nameof(LanguageManager.GetTimeStringForCurrentLanguage))]
 public class MainPatch : Patch
 {
+    public static string format = "0.00";
+
     public MainPatch() {
         this.original = AccessTools.Method(typeof(LanguageManager), "GetTimeStringForCurrentLanguage");
         this.patch = AccessTools.Method(typeof(MainPatch), "Transpiler");
@@ -18,8 +20,13 @@ public class MainPatch : Patch
     {
         var codes = new List<CodeInstruction>(instructions);
         int index = PatchHelper.FindLdstrOperand(codes, "0.0");
-        codes[index].operand = "0.00";
+        codes[index] = new CodeInstruction(OpCodes.Ldsfld, AccessTools.Field(typeof(MainPatch), "format"));
         return codes.AsEnumerable();
+    }
+
+    public override void WhenSettingUpdated(object newValue)
+    {
+        format = (int) newValue == 1 ? "0.00" : "0";
     }
 
 }
